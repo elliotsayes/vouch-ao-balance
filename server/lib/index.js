@@ -8,9 +8,9 @@ import { sendMessage } from './send-message.js'
 
 export function doVouch(address, value) {
   return of({ address, value })
-    .chain(ctx => fromPromise(isVouched)(ctx)
-      .chain(r => r.ok ? Rejected({ message: 'Already vouched!' }) : Resolved(ctx))
-    )
+    // .chain(ctx => fromPromise(isVouched)(ctx)
+    //   .chain(r => r.ok ? Rejected({ message: 'Already vouched!' }) : Resolved(ctx))
+    // )
     .chain(fromPromise(dispatch))
     .chain(fromPromise(sendMessage))
     .chain(fromPromise(writeInteraction))
