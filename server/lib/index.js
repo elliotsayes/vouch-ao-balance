@@ -13,6 +13,6 @@ export function doVouch(address, value) {
     // )
     .chain(fromPromise(dispatch))
     .chain(fromPromise(sendMessage))
-    .chain(fromPromise(writeInteraction))
+    // .chain(fromPromise(writeInteraction))
     .toPromise()
 }
